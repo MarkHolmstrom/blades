@@ -6,6 +6,9 @@ on:  # yamllint disable-line rule:truthy
       - master
   pull_request:
 
+permissions:
+  contents: write
+  
 jobs:
 
   pytest:
@@ -20,7 +23,7 @@ jobs:
       # Skip workflow if only certain files have been changed.
       - name: Get changed files
         id: changed-files-specific
-        uses: tj-actions/changed-files@v34
+        uses: tj-actions/changed-files@v41
         with:
           files: |
             blades/benchmarks/**
